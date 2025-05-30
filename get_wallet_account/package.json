@@ -1,0 +1,17 @@
+{
+  "name": "get_wallet_account",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.9.0",
+  "dependencies": {
+    "@solana/kit": "^2.1.1",
+    "@solana/web3.js": "^1.98.2"
+  }
+}
