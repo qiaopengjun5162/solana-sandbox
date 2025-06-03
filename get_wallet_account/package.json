@@ -4,14 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "tsx src/index.ts",
+    "validator": "solana-test-validator",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.9.0",
+  "packageManager": "pnpm@10.11.0",
   "dependencies": {
     "@solana/kit": "^2.1.1",
-    "@solana/web3.js": "^1.98.2"
+    "@solana/web3.js": "^1.98.2",
+    "dotenv": "^16.5.0",
+    "tsx": "^4.19.4"
   }
 }
