@@ -1,0 +1,14 @@
+[package]
+name = "solana-sdk-demo"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.98"
+solana-sdk = "2.2.2"
+tokio = { version = "1.45.1", features = ["full"] }
+solana-client = "2.2.7"
+dotenvy = "0.15.7"
+spl-token = "8.0.0"
+spl-token-2022 = "9.0.0"
+spl-associated-token-account = "7.0.0"

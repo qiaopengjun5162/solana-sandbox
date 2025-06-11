@@ -1,0 +1,16 @@
+cargo-features = ["edition2024"]
+
+[package]
+name = "sol-program"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[dependencies]
+solana-account-info = "2.3.0"
+# solana-program = "2.3.0"
+solana-program-entrypoint = "2.3.0"
+solana-program-error = "2.2.2"
+solana-pubkey = "2.4.0"

@@ -23,3 +23,5 @@ target/
 */.vscode/
 
 */test-ledger/
+solana-sdk-demo/keys/SDkZ1GXNPseV2RL46QigxZPy23qSGmb4NBnM53GyNUB.json
+solana-sdk-demo/keys/SdkcwrahL9q1wm7qB8wQwNBKxZJ4Ck7A413tWDkSBjo.json
