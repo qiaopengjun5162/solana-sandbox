@@ -1,10 +1,7 @@
 #![allow(unexpected_cfgs)]
 
-use solana_account_info::AccountInfo;
-use solana_msg::msg;
-use solana_program_entrypoint::entrypoint;
-use solana_program_error::ProgramResult;
-use solana_pubkey::Pubkey;
+use solana_program::entrypoint;
+use solana_program::{account_info::AccountInfo, entrypoint::ProgramResult, msg, pubkey::Pubkey};
 
 entrypoint!(process_instruction);
 
