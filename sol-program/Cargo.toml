@@ -9,6 +9,10 @@ edition = "2024"
 crate-type = ["cdylib", "lib"]
 
 [[example]]
+name = "event"
+path = "examples/event.rs"
+
+[[example]]
 name = "client"
 path = "examples/client.rs"
 
@@ -17,6 +21,8 @@ anyhow = "1.0.98"
 borsh = "1.5.7"
 borsh-derive = "1.5.7"
 dotenvy = "0.15.7"
+reqwest = { version = "0.12.20", features = ["json"] }
+serde_json = { version = "1.0.140", features = ["default"] }
 solana-account-info = "2.2.1"
 solana-msg = "2.2.1"
 solana-program-entrypoint = "2.2.1"

@@ -1,16 +1,14 @@
 #![allow(unexpected_cfgs)]
 
-use borsh_derive::{
-    BorshDeserialize as BorshDeserializeDerive, BorshSerialize as BorshSerializeDerive,
-};
+use borsh_derive::{BorshDeserialize, BorshSerialize};
 use solana_account_info::AccountInfo;
 use solana_msg::msg;
 use solana_program_entrypoint::entrypoint;
 use solana_program_error::{ProgramError, ProgramResult};
-use solana_pubkey::Pubkey; // 为 trait 设置别名
+use solana_pubkey::Pubkey;
 
 // 定义事件结构体
-#[derive(BorshDeserializeDerive, BorshSerializeDerive, Debug)]
+#[derive(BorshDeserialize, BorshSerialize, Debug)]
 pub struct GreetingEvent {
     pub message: String, // Greeting message contained in the event
 }
@@ -47,11 +45,11 @@ mod test {
     use solana_sdk::{
         instruction::Instruction, pubkey::Pubkey, signature::Signer, transaction::Transaction,
     };
-    use std::str::FromStr;
 
     #[tokio::test]
     async fn test_sol_program() {
-        let program_id = Pubkey::from_str("GGBjDqYdicSE6Qmtu6SAsueX1biM5LjbJ8R8vZvFfofA").unwrap();
+        // let program_id = Pubkey::from_str("GGBjDqYdicSE6Qmtu6SAsueX1biM5LjbJ8R8vZvFfofA").unwrap();
+        let program_id = Pubkey::new_unique();
         let mut program_test = ProgramTest::default();
         program_test.add_program("sol_program", program_id, None);
         let mut context = program_test.start_with_context().await;
@@ -75,7 +73,7 @@ mod test {
         let transaction_result = banks_client
             .process_transaction_with_metadata(transaction)
             .await
-            .unwrap();
+            .expect("Failed to process transaction");
 
         assert!(transaction_result.result.is_ok());
 
