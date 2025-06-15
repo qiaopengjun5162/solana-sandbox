@@ -1,0 +1,10 @@
+[project]
+name = "solana-event-log-parse"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "anchorpy>=0.21.0",
+    "solders>=0.26.0",
+]
