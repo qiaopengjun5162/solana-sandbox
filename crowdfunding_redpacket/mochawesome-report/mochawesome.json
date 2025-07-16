@@ -1,0 +1,409 @@
+{
+  "stats": {
+    "suites": 6,
+    "tests": 10,
+    "passes": 9,
+    "pending": 1,
+    "failures": 0,
+    "start": "2025-06-27T08:18:13.385Z",
+    "end": "2025-06-27T08:18:32.439Z",
+    "duration": 19054,
+    "testsRegistered": 10,
+    "passPercent": 100,
+    "pendingPercent": 10,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "feb14452-b213-4bf2-99ce-e86a172d0700",
+      "title": "",
+      "fullFile": "/Users/qiaopengjun/Code/Solana/solana/aidr-protocal/crowdfunding_redpacket/tests/crowdfunding_redpacket.ts",
+      "file": "/tests/crowdfunding_redpacket.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "aaa0dcc0-b16d-4897-8731-e585c89daf9d",
+          "title": "crowdfunding_redpacket",
+          "fullFile": "/Users/qiaopengjun/Code/Solana/solana/aidr-protocal/crowdfunding_redpacket/tests/crowdfunding_redpacket.ts",
+          "file": "/tests/crowdfunding_redpacket.ts",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"crowdfunding_redpacket\"",
+              "fullTitle": "crowdfunding_redpacket \"before all\" hook in \"crowdfunding_redpacket\"",
+              "timedOut": false,
+              "duration": 2172,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "__awaiter(void 0, void 0, void 0, function* () {\n        // 给所有测试账户空投SOL，用于支付gas费\n        yield provider.connection.requestAirdrop(creator.publicKey, 5 * web3_js_1.LAMPORTS_PER_SOL);\n        yield provider.connection.requestAirdrop(backer1.publicKey, 5 * web3_js_1.LAMPORTS_PER_SOL);\n        yield provider.connection.requestAirdrop(backer2.publicKey, 5 * web3_js_1.LAMPORTS_PER_SOL);\n        yield provider.connection.requestAirdrop(airdropClaimer1.publicKey, 5 * web3_js_1.LAMPORTS_PER_SOL);\n        yield provider.connection.requestAirdrop(admin.publicKey, 5 * web3_js_1.LAMPORTS_PER_SOL);\n        // 等待空投确认\n        yield new Promise((resolve) => setTimeout(resolve, 2000));\n        console.log(\"Test wallets funded.\");\n    })",
+              "err": {},
+              "uuid": "d836a091-293b-41f8-88c5-aef2bb8bd77a",
+              "parentUUID": "aaa0dcc0-b16d-4897-8731-e585c89daf9d",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "9b3ec006-fb0c-4652-8619-e16e765cbedf",
+              "title": "0. Global Configuration",
+              "fullFile": "/Users/qiaopengjun/Code/Solana/solana/aidr-protocal/crowdfunding_redpacket/tests/crowdfunding_redpacket.ts",
+              "file": "/tests/crowdfunding_redpacket.ts",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Initializes the global config account",
+                  "fullTitle": "crowdfunding_redpacket 0. Global Configuration Initializes the global config account",
+                  "timedOut": false,
+                  "duration": 509,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "__awaiter(void 0, void 0, void 0, function* () {\n            [configPDA] = web3_js_1.PublicKey.findProgramAddressSync([Buffer.from(\"config\")], program.programId);\n            yield program.methods\n                .initializeConfig(developerWallet.publicKey)\n                .accounts({\n                admin: admin.publicKey,\n                config: configPDA,\n                systemProgram: web3_js_1.SystemProgram.programId,\n            })\n                .signers([admin])\n                .rpc();\n            const configAccount = yield program.account.config.fetch(configPDA);\n            chai_1.assert.equal(configAccount.admin.toBase58(), admin.publicKey.toBase58());\n            chai_1.assert.equal(configAccount.developerWallet.toBase58(), developerWallet.publicKey.toBase58());\n            console.log(\"Global config initialized successfully.\");\n        })",
+                  "err": {},
+                  "uuid": "9e5910af-65e9-43f4-9c30-a2c463051962",
+                  "parentUUID": "9b3ec006-fb0c-4652-8619-e16e765cbedf",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "9e5910af-65e9-43f4-9c30-a2c463051962"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 509,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 1000000
+            },
+            {
+              "uuid": "9b940cda-b015-4d8e-9275-58940f32a639",
+              "title": "1. Initialization and Creation",
+              "fullFile": "/Users/qiaopengjun/Code/Solana/solana/aidr-protocal/crowdfunding_redpacket/tests/crowdfunding_redpacket.ts",
+              "file": "/tests/crowdfunding_redpacket.ts",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Sets up the test environment (mints tokens)",
+                  "fullTitle": "crowdfunding_redpacket 1. Initialization and Creation Sets up the test environment (mints tokens)",
+                  "timedOut": false,
+                  "duration": 3034,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "__awaiter(void 0, void 0, void 0, function* () {\n            // 创建一个新的代币\n            mint = yield (0, spl_token_1.createMint)(provider.connection, creator, // payer\n            creator.publicKey, // mint authority\n            null, // freeze authority\n            9 // decimals\n            );\n            // 为各个账户创建关联代币账户 (ATA)\n            creatorTokenAccount = yield (0, spl_token_1.createAssociatedTokenAccount)(provider.connection, creator, mint, creator.publicKey);\n            claimer1TokenAccount = yield (0, spl_token_1.createAssociatedTokenAccount)(provider.connection, creator, // airdrop claimer doesn't have SOL yet, so creator pays\n            mint, airdropClaimer1.publicKey);\n            backer1TokenAccount = yield (0, spl_token_1.createAssociatedTokenAccount)(provider.connection, creator, mint, backer1.publicKey);\n            backer2TokenAccount = yield (0, spl_token_1.createAssociatedTokenAccount)(provider.connection, creator, mint, backer2.publicKey);\n            // 给创建者的ATA里铸造代币\n            yield (0, spl_token_1.mintTo)(provider.connection, creator, mint, creatorTokenAccount, creator.publicKey, MINT_TOTAL_SUPPLY.toNumber());\n            const creatorAtaInfo = yield (0, spl_token_1.getAccount)(provider.connection, creatorTokenAccount);\n            chai_1.assert.ok(new anchor_1.BN(creatorAtaInfo.amount.toString()).eq(MINT_TOTAL_SUPPLY), \"Creator should have the total supply\");\n            console.log(`Mint Address: ${mint.toBase58()}`);\n            console.log(`Creator ATA: ${creatorTokenAccount.toBase58()}`);\n        })",
+                  "err": {},
+                  "uuid": "a54ee353-40dd-4f73-a7bb-040c16f220da",
+                  "parentUUID": "9b940cda-b015-4d8e-9275-58940f32a639",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Successfully creates a new red packet with default allocations",
+                  "fullTitle": "crowdfunding_redpacket 1. Initialization and Creation Successfully creates a new red packet with default allocations",
+                  "timedOut": false,
+                  "duration": 476,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "__awaiter(void 0, void 0, void 0, function* () {\n            // 找到 PDA 地址\n            [redPacketPDA] = web3_js_1.PublicKey.findProgramAddressSync([Buffer.from(\"red_packet\"), creator.publicKey.toBuffer()], program.programId);\n            [solVaultPDA] = web3_js_1.PublicKey.findProgramAddressSync([Buffer.from(\"sol_vault\"), redPacketPDA.toBuffer()], program.programId);\n            [tokenVaultPDA] = web3_js_1.PublicKey.findProgramAddressSync([Buffer.from(\"token_vault\"), redPacketPDA.toBuffer()], program.programId);\n            // 定义创建参数 (使用默认分配)\n            const params = {\n                mint: mint,\n                totalAmount: MINT_TOTAL_SUPPLY,\n                tokenName: \"TEST\",\n                tokenSymbol: \"TST\",\n                fundingGoal: FUNDING_GOAL,\n                allocations: [], // 空数组以触发默认分配\n                airdropMaxCount: new anchor.BN(100),\n                expiryDuration: new anchor.BN(3), // 3 秒\n            };\n            yield program.methods\n                .createCustomRedpacket(params)\n                .accounts({\n                creator: creator.publicKey,\n                redPacket: redPacketPDA,\n                creatorTokenAccount: creatorTokenAccount,\n                solVault: solVaultPDA,\n                tokenVault: tokenVaultPDA,\n                mint: mint,\n                systemProgram: web3_js_1.SystemProgram.programId,\n                tokenProgram: spl_token_1.TOKEN_PROGRAM_ID,\n            })\n                .signers([creator])\n                .rpc();\n            // 验证状态\n            const redPacketAccount = yield program.account.redPacket.fetch(redPacketPDA);\n            chai_1.assert.equal(redPacketAccount.creator.toBase58(), creator.publicKey.toBase58());\n            chai_1.assert.ok(redPacketAccount.fundingGoal.eq(FUNDING_GOAL));\n            chai_1.assert.equal(redPacketAccount.tokenName, \"TEST\");\n            // 验证代币是否已转入金库\n            const tokenVaultInfo = yield (0, spl_token_1.getAccount)(provider.connection, tokenVaultPDA);\n            chai_1.assert.ok(new anchor_1.BN(tokenVaultInfo.amount.toString()).eq(MINT_TOTAL_SUPPLY));\n            console.log(\"Red Packet created successfully.\");\n        })",
+                  "err": {},
+                  "uuid": "a5789f77-08c2-4b86-b497-eec82c70ca80",
+                  "parentUUID": "9b940cda-b015-4d8e-9275-58940f32a639",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "a54ee353-40dd-4f73-a7bb-040c16f220da",
+                "a5789f77-08c2-4b86-b497-eec82c70ca80"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 3510,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 1000000
+            },
+            {
+              "uuid": "674dbf12-047b-456d-a30e-6686e0f1ef8a",
+              "title": "2. Crowdfunding In Progress",
+              "fullFile": "/Users/qiaopengjun/Code/Solana/solana/aidr-protocal/crowdfunding_redpacket/tests/crowdfunding_redpacket.ts",
+              "file": "/tests/crowdfunding_redpacket.ts",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Allows users to support the crowdfunding",
+                  "fullTitle": "crowdfunding_redpacket 2. Crowdfunding In Progress Allows users to support the crowdfunding",
+                  "timedOut": false,
+                  "duration": 1026,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "__awaiter(void 0, void 0, void 0, function* () {\n            // Backer 1 支持\n            const [backer1StatePDA] = web3_js_1.PublicKey.findProgramAddressSync([\n                Buffer.from(\"backer_state\"),\n                redPacketPDA.toBuffer(),\n                backer1.publicKey.toBuffer(),\n            ], program.programId);\n            yield program.methods\n                .supportCrowdfunding(LARGE_SUPPORT_AMOUNT)\n                .accounts({\n                redPacket: redPacketPDA,\n                backer: backer1.publicKey,\n                backerState: backer1StatePDA,\n                solVault: solVaultPDA,\n                creator: creator.publicKey,\n                systemProgram: web3_js_1.SystemProgram.programId,\n            })\n                .signers([backer1])\n                .rpc();\n            // Backer 2 支持\n            const [backer2StatePDA] = web3_js_1.PublicKey.findProgramAddressSync([\n                Buffer.from(\"backer_state\"),\n                redPacketPDA.toBuffer(),\n                backer2.publicKey.toBuffer(),\n            ], program.programId);\n            yield program.methods\n                .supportCrowdfunding(SMALL_SUPPORT_AMOUNT)\n                .accounts({\n                redPacket: redPacketPDA,\n                backer: backer2.publicKey,\n                backerState: backer2StatePDA,\n                solVault: solVaultPDA,\n                creator: creator.publicKey,\n                systemProgram: web3_js_1.SystemProgram.programId,\n            })\n                .signers([backer2])\n                .rpc();\n            // 验证状态\n            const redPacketAccount = yield program.account.redPacket.fetch(redPacketPDA);\n            const expectedRaised = LARGE_SUPPORT_AMOUNT.add(SMALL_SUPPORT_AMOUNT);\n            chai_1.assert.ok(redPacketAccount.solRaised.eq(expectedRaised), \"SOL raised should be updated correctly.\");\n            console.log(`Total SOL raised: ${redPacketAccount.solRaised.toString()}`);\n        })",
+                  "err": {},
+                  "uuid": "6f42ba4e-6c5c-47f7-9b08-ed78b8a75e2b",
+                  "parentUUID": "674dbf12-047b-456d-a30e-6686e0f1ef8a",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Allows users to claim airdrops",
+                  "fullTitle": "crowdfunding_redpacket 2. Crowdfunding In Progress Allows users to claim airdrops",
+                  "timedOut": false,
+                  "duration": 478,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "__awaiter(void 0, void 0, void 0, function* () {\n            const [airdropStatePDA] = web3_js_1.PublicKey.findProgramAddressSync([\n                Buffer.from(\"airdrop\"),\n                redPacketPDA.toBuffer(),\n                airdropClaimer1.publicKey.toBuffer(),\n            ], program.programId);\n            yield program.methods\n                .claimAirdrop()\n                .accounts({\n                redPacket: redPacketPDA,\n                claimer: airdropClaimer1.publicKey,\n                airdropState: airdropStatePDA,\n                tokenVault: tokenVaultPDA,\n                claimerAta: claimer1TokenAccount,\n                mint: mint,\n                creator: creator.publicKey,\n                tokenProgram: spl_token_1.TOKEN_PROGRAM_ID,\n                systemProgram: web3_js_1.SystemProgram.programId,\n            })\n                .signers([airdropClaimer1])\n                .rpc();\n            // 验证状态\n            const redPacketAccount = yield program.account.redPacket.fetch(redPacketPDA);\n            chai_1.assert.equal(redPacketAccount.airdropClaimed, 1, \"Airdrop claimed count should be 1.\");\n            const airdropStateAccount = yield program.account.airdropState.fetch(airdropStatePDA);\n            chai_1.assert.isTrue(airdropStateAccount.claimed, \"Airdrop state should be marked as claimed.\");\n            console.log(\"Airdrop claimed successfully.\");\n        })",
+                  "err": {},
+                  "uuid": "36363429-07e1-4032-9fa8-5759cd33fc1b",
+                  "parentUUID": "674dbf12-047b-456d-a30e-6686e0f1ef8a",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "6f42ba4e-6c5c-47f7-9b08-ed78b8a75e2b",
+                "36363429-07e1-4032-9fa8-5759cd33fc1b"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1504,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 1000000
+            },
+            {
+              "uuid": "400c8f63-e85b-4169-9fb2-00887852b3bb",
+              "title": "3. Settlement (Success Path)",
+              "fullFile": "/Users/qiaopengjun/Code/Solana/solana/aidr-protocal/crowdfunding_redpacket/tests/crowdfunding_redpacket.ts",
+              "file": "/tests/crowdfunding_redpacket.ts",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Successfully settles a SUCCESSFUL crowdfund",
+                  "fullTitle": "crowdfunding_redpacket 3. Settlement (Success Path) Successfully settles a SUCCESSFUL crowdfund",
+                  "timedOut": false,
+                  "duration": 4285,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "__awaiter(void 0, void 0, void 0, function* () {\n            // 注意：在真实世界中，我们需要等待 expiry_time 到达。\n            // 在测试中，我们假设时间已到，直接调用结算。\n            console.log(\"Waiting for crowdfund to expire...\");\n            yield sleep(4000); // 等待4秒，确保超过3秒的有效期\n            console.log(\"Simulating time has passed, settling crowdfund...\");\n            yield program.methods\n                .settleCrowdfunding()\n                .accounts({\n                redPacket: redPacketPDA,\n                creator: creator.publicKey,\n                solVault: solVaultPDA,\n                tokenVault: tokenVaultPDA,\n                systemProgram: web3_js_1.SystemProgram.programId,\n                tokenProgram: spl_token_1.TOKEN_PROGRAM_ID,\n            })\n                .signers([creator])\n                .rpc();\n            // 验证状态\n            const redPacketAccount = yield program.account.redPacket.fetch(redPacketPDA);\n            chai_1.assert.isTrue(redPacketAccount.settled, \"Red packet should be settled.\");\n            chai_1.assert.isTrue(redPacketAccount.success, \"Crowdfund should be successful.\");\n            chai_1.assert.ok(redPacketAccount.devFundSolAmount.gtn(0), \"Dev fund SOL should be allocated.\");\n            chai_1.assert.ok(redPacketAccount.protocolFeeAmount.gtn(0), \"Protocol fee SOL should be allocated.\");\n            console.log(\"Crowdfund settled successfully.\");\n        })",
+                  "err": {},
+                  "uuid": "dd9e650a-c243-44f1-b04b-385aa0ff597f",
+                  "parentUUID": "400c8f63-e85b-4169-9fb2-00887852b3bb",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Allows backers to claim their vested TOKENS after success",
+                  "fullTitle": "crowdfunding_redpacket 3. Settlement (Success Path) Allows backers to claim their vested TOKENS after success",
+                  "timedOut": false,
+                  "duration": 461,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "__awaiter(void 0, void 0, void 0, function* () {\n            const [backer1StatePDA] = web3_js_1.PublicKey.findProgramAddressSync([\n                Buffer.from(\"backer_state\"),\n                redPacketPDA.toBuffer(),\n                backer1.publicKey.toBuffer(),\n            ], program.programId);\n            yield program.methods\n                .claimTokens()\n                .accounts({\n                redPacket: redPacketPDA,\n                claimer: backer1.publicKey,\n                backerState: backer1StatePDA,\n                tokenVault: tokenVaultPDA,\n                claimerAta: backer1TokenAccount,\n                mint: mint,\n                creator: creator.publicKey,\n                tokenProgram: spl_token_1.TOKEN_PROGRAM_ID,\n            })\n                .signers([backer1])\n                .rpc();\n            // 验证状态\n            const backer1State = yield program.account.backerState.fetch(backer1StatePDA);\n            chai_1.assert.ok(backer1State.claimedAmount.gtn(0), \"Backer should have claimed some tokens.\");\n            console.log(`Backer 1 claimed ${backer1State.claimedAmount} tokens.`);\n        })",
+                  "err": {},
+                  "uuid": "e221048d-fd1c-44b1-8093-26c945581324",
+                  "parentUUID": "400c8f63-e85b-4169-9fb2-00887852b3bb",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Allows the creator to claim the dev fund SOL after success",
+                  "fullTitle": "crowdfunding_redpacket 3. Settlement (Success Path) Allows the creator to claim the dev fund SOL after success",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "pending",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": true,
+                  "context": null,
+                  "code": "",
+                  "err": {},
+                  "uuid": "0e32f218-ed8c-49bb-b5f6-e44b3b7322a7",
+                  "parentUUID": "400c8f63-e85b-4169-9fb2-00887852b3bb",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Allows the creator to distribute fees after success",
+                  "fullTitle": "crowdfunding_redpacket 3. Settlement (Success Path) Allows the creator to distribute fees after success",
+                  "timedOut": false,
+                  "duration": 454,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "__awaiter(void 0, void 0, void 0, function* () {\n            const devWalletBalanceBefore = yield provider.connection.getBalance(developerWallet.publicKey);\n            yield program.methods\n                .distributeFees()\n                .accounts({\n                redPacket: redPacketPDA,\n                creator: creator.publicKey,\n                developerWallet: developerWallet.publicKey,\n                solVault: solVaultPDA,\n                systemProgram: web3_js_1.SystemProgram.programId,\n            })\n                .signers([creator])\n                .rpc();\n            const devWalletBalanceAfter = yield provider.connection.getBalance(developerWallet.publicKey);\n            chai_1.assert.ok(devWalletBalanceAfter > devWalletBalanceBefore, \"Developer wallet should receive fees.\");\n            const redPacketAccount = yield program.account.redPacket.fetch(redPacketPDA);\n            chai_1.assert.isTrue(redPacketAccount.feesDistributed, \"fees_distributed flag should be true.\");\n            console.log(\"Fees distributed successfully.\");\n        })",
+                  "err": {},
+                  "uuid": "27ec5641-a9c9-4da0-a10f-24711c0e390a",
+                  "parentUUID": "400c8f63-e85b-4169-9fb2-00887852b3bb",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "dd9e650a-c243-44f1-b04b-385aa0ff597f",
+                "e221048d-fd1c-44b1-8093-26c945581324",
+                "27ec5641-a9c9-4da0-a10f-24711c0e390a"
+              ],
+              "failures": [],
+              "pending": [
+                "0e32f218-ed8c-49bb-b5f6-e44b3b7322a7"
+              ],
+              "skipped": [],
+              "duration": 5200,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 1000000
+            },
+            {
+              "uuid": "305b96d1-8ca8-4aa0-9c66-c41449c8b48e",
+              "title": "4. Settlement (Failure Path)",
+              "fullFile": "/Users/qiaopengjun/Code/Solana/solana/aidr-protocal/crowdfunding_redpacket/tests/crowdfunding_redpacket.ts",
+              "file": "/tests/crowdfunding_redpacket.ts",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook in \"4. Settlement (Failure Path)\"",
+                  "fullTitle": "crowdfunding_redpacket 4. Settlement (Failure Path) \"before all\" hook in \"4. Settlement (Failure Path)\"",
+                  "timedOut": false,
+                  "duration": 2348,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "__awaiter(void 0, void 0, void 0, function* () {\n            yield provider.connection.requestAirdrop(creatorFail.publicKey, 2 * web3_js_1.LAMPORTS_PER_SOL);\n            yield provider.connection.requestAirdrop(backerFail.publicKey, 2 * web3_js_1.LAMPORTS_PER_SOL);\n            yield new Promise((resolve) => setTimeout(resolve, 1000));\n            mintFail = yield (0, spl_token_1.createMint)(provider.connection, creatorFail, creatorFail.publicKey, null, 9);\n            creatorTokenAccountFail = yield (0, spl_token_1.createAssociatedTokenAccount)(provider.connection, creatorFail, mintFail, creatorFail.publicKey);\n            yield (0, spl_token_1.mintTo)(provider.connection, creatorFail, mintFail, creatorTokenAccountFail, creatorFail.publicKey, MINT_TOTAL_SUPPLY.toNumber());\n        })",
+                  "err": {},
+                  "uuid": "f79dced9-78a9-4330-9592-4f60dcc04cae",
+                  "parentUUID": "305b96d1-8ca8-4aa0-9c66-c41449c8b48e",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Correctly handles a FAILED crowdfund and allows refunds",
+                  "fullTitle": "crowdfunding_redpacket 4. Settlement (Failure Path) Correctly handles a FAILED crowdfund and allows refunds",
+                  "timedOut": false,
+                  "duration": 3788,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "__awaiter(void 0, void 0, void 0, function* () {\n            // 找到 PDAs\n            [redPacketPDAFail] = web3_js_1.PublicKey.findProgramAddressSync([Buffer.from(\"red_packet\"), creatorFail.publicKey.toBuffer()], program.programId);\n            [solVaultPDAFail] = web3_js_1.PublicKey.findProgramAddressSync([Buffer.from(\"sol_vault\"), redPacketPDAFail.toBuffer()], program.programId);\n            [tokenVaultPDAFail] = web3_js_1.PublicKey.findProgramAddressSync([Buffer.from(\"token_vault\"), redPacketPDAFail.toBuffer()], program.programId);\n            // 创建一个注定会失败的项目 (高目标，低支持)\n            const params = {\n                mint: mintFail,\n                totalAmount: MINT_TOTAL_SUPPLY,\n                tokenName: \"FAIL\",\n                tokenSymbol: \"FAL\",\n                fundingGoal: new anchor_1.BN(10 * web3_js_1.LAMPORTS_PER_SOL), // 目标很高\n                allocations: [],\n                airdropMaxCount: new anchor.BN(100),\n                expiryDuration: new anchor.BN(1), // 立即过期\n            };\n            yield program.methods\n                .createCustomRedpacket(params)\n                .accounts({\n                creator: creatorFail.publicKey,\n                redPacket: redPacketPDAFail,\n                creatorTokenAccount: creatorTokenAccountFail,\n                solVault: solVaultPDAFail,\n                tokenVault: tokenVaultPDAFail,\n                mint: mintFail,\n                systemProgram: web3_js_1.SystemProgram.programId,\n                tokenProgram: spl_token_1.TOKEN_PROGRAM_ID,\n            })\n                .signers([creatorFail])\n                .rpc();\n            // 用户支持一点点\n            const [backerFailStatePDA] = web3_js_1.PublicKey.findProgramAddressSync([\n                Buffer.from(\"backer_state\"),\n                redPacketPDAFail.toBuffer(),\n                backerFail.publicKey.toBuffer(),\n            ], program.programId);\n            yield program.methods\n                .supportCrowdfunding(SMALL_SUPPORT_AMOUNT)\n                .accounts({\n                redPacket: redPacketPDAFail,\n                backer: backerFail.publicKey,\n                backerState: backerFailStatePDA,\n                solVault: solVaultPDAFail,\n                creator: creatorFail.publicKey,\n                systemProgram: web3_js_1.SystemProgram.programId,\n            })\n                .signers([backerFail])\n                .rpc();\n            // 模拟等待\n            yield new Promise((resolve) => setTimeout(resolve, 2000));\n            // 结算失败的项目\n            yield program.methods\n                .settleCrowdfunding()\n                .accounts({\n                redPacket: redPacketPDAFail,\n                creator: creatorFail.publicKey,\n                solVault: solVaultPDAFail,\n                tokenVault: tokenVaultPDAFail,\n                systemProgram: web3_js_1.SystemProgram.programId,\n                tokenProgram: spl_token_1.TOKEN_PROGRAM_ID,\n            })\n                .signers([creatorFail])\n                .rpc();\n            let redPacketAccount = yield program.account.redPacket.fetch(redPacketPDAFail);\n            chai_1.assert.isTrue(redPacketAccount.settled, \"Should be settled.\");\n            chai_1.assert.isFalse(redPacketAccount.success, \"Should be marked as failed.\");\n            console.log(\"Failed crowdfund settled correctly.\");\n            // Backer 进行退款\n            const backerBalanceBefore = yield provider.connection.getBalance(backerFail.publicKey);\n            yield program.methods\n                .refund()\n                .accounts({\n                redPacket: redPacketPDAFail,\n                backer: backerFail.publicKey,\n                backerState: backerFailStatePDA,\n                solVault: solVaultPDAFail,\n                creator: creatorFail.publicKey,\n                systemProgram: web3_js_1.SystemProgram.programId,\n            })\n                .signers([backerFail])\n                .rpc();\n            const backerBalanceAfter = yield provider.connection.getBalance(backerFail.publicKey);\n            chai_1.assert.ok(backerBalanceAfter > backerBalanceBefore, \"Backer's balance should increase after refund.\");\n            console.log(\"Backer refunded successfully.\");\n        })",
+                  "err": {},
+                  "uuid": "1fff8286-b324-4087-9679-5557643261e7",
+                  "parentUUID": "305b96d1-8ca8-4aa0-9c66-c41449c8b48e",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "1fff8286-b324-4087-9679-5557643261e7"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 3788,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 1000000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 1000000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 1000000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "9.2.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}

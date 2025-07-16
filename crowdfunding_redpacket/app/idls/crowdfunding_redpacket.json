@@ -1,0 +1,1898 @@
+{
+  "address": "3jSB715HJHpXnJNeoABw6nAzg9hJ4bgGERumnsoAa31X",
+  "metadata": {
+    "name": "crowdfunding_redpacket",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "claim_airdrop",
+      "discriminator": [
+        137,
+        50,
+        122,
+        111,
+        89,
+        254,
+        8,
+        20
+      ],
+      "accounts": [
+        {
+          "name": "red_packet",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  101,
+                  100,
+                  95,
+                  112,
+                  97,
+                  99,
+                  107,
+                  101,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              }
+            ]
+          }
+        },
+        {
+          "name": "claimer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "airdrop_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  105,
+                  114,
+                  100,
+                  114,
+                  111,
+                  112
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "red_packet"
+              },
+              {
+                "kind": "account",
+                "path": "claimer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  111,
+                  107,
+                  101,
+                  110,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "red_packet"
+              }
+            ]
+          }
+        },
+        {
+          "name": "claimer_ata",
+          "writable": true
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "creator"
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "claim_dev_fund",
+      "discriminator": [
+        58,
+        215,
+        129,
+        105,
+        169,
+        113,
+        72,
+        191
+      ],
+      "accounts": [
+        {
+          "name": "red_packet",
+          "writable": true
+        },
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "sol_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  111,
+                  108,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "red_packet"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "claim_tokens",
+      "discriminator": [
+        108,
+        216,
+        210,
+        231,
+        0,
+        212,
+        42,
+        64
+      ],
+      "accounts": [
+        {
+          "name": "red_packet",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  101,
+                  100,
+                  95,
+                  112,
+                  97,
+                  99,
+                  107,
+                  101,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              }
+            ]
+          }
+        },
+        {
+          "name": "claimer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "backer_state",
+          "writable": true
+        },
+        {
+          "name": "token_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  111,
+                  107,
+                  101,
+                  110,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "red_packet"
+              }
+            ]
+          }
+        },
+        {
+          "name": "claimer_ata",
+          "writable": true
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "creator"
+        },
+        {
+          "name": "token_program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "create_custom_redpacket",
+      "discriminator": [
+        150,
+        237,
+        165,
+        27,
+        185,
+        223,
+        78,
+        194
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "red_packet",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  101,
+                  100,
+                  95,
+                  112,
+                  97,
+                  99,
+                  107,
+                  101,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              }
+            ]
+          }
+        },
+        {
+          "name": "creator_token_account",
+          "writable": true
+        },
+        {
+          "name": "sol_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  111,
+                  108,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "red_packet"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  111,
+                  107,
+                  101,
+                  110,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "red_packet"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mint"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "params",
+          "type": {
+            "defined": {
+              "name": "CustomCrowdfundingParams"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "distribute_fees",
+      "discriminator": [
+        120,
+        56,
+        27,
+        7,
+        53,
+        176,
+        113,
+        186
+      ],
+      "accounts": [
+        {
+          "name": "red_packet",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  101,
+                  100,
+                  95,
+                  112,
+                  97,
+                  99,
+                  107,
+                  101,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              }
+            ]
+          }
+        },
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "developer_wallet",
+          "writable": true
+        },
+        {
+          "name": "sol_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  111,
+                  108,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "red_packet"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "initialize",
+      "discriminator": [
+        175,
+        175,
+        109,
+        31,
+        13,
+        152,
+        155,
+        237
+      ],
+      "accounts": [],
+      "args": []
+    },
+    {
+      "name": "initialize_config",
+      "discriminator": [
+        208,
+        127,
+        21,
+        1,
+        194,
+        190,
+        196,
+        70
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "developer_wallet",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "refund",
+      "discriminator": [
+        2,
+        96,
+        183,
+        251,
+        63,
+        208,
+        46,
+        46
+      ],
+      "accounts": [
+        {
+          "name": "red_packet",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  101,
+                  100,
+                  95,
+                  112,
+                  97,
+                  99,
+                  107,
+                  101,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              }
+            ]
+          }
+        },
+        {
+          "name": "backer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "backer_state",
+          "writable": true
+        },
+        {
+          "name": "sol_vault",
+          "docs": [
+            "存储众筹的 SOL，用于退款给支持者。"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  111,
+                  108,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "red_packet"
+              }
+            ]
+          }
+        },
+        {
+          "name": "creator"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "settle_crowdfunding",
+      "discriminator": [
+        129,
+        9,
+        104,
+        218,
+        210,
+        84,
+        42,
+        176
+      ],
+      "accounts": [
+        {
+          "name": "red_packet",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  101,
+                  100,
+                  95,
+                  112,
+                  97,
+                  99,
+                  107,
+                  101,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              }
+            ]
+          }
+        },
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "sol_vault",
+          "docs": [
+            "存储众筹的 SOL，用于结算或分配给创建者。"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  111,
+                  108,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "red_packet"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  111,
+                  107,
+                  101,
+                  110,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "red_packet"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "support_crowdfunding",
+      "discriminator": [
+        143,
+        137,
+        0,
+        66,
+        93,
+        76,
+        183,
+        97
+      ],
+      "accounts": [
+        {
+          "name": "red_packet",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  101,
+                  100,
+                  95,
+                  112,
+                  97,
+                  99,
+                  107,
+                  101,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "creator"
+              }
+            ]
+          }
+        },
+        {
+          "name": "backer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "backer_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  97,
+                  99,
+                  107,
+                  101,
+                  114,
+                  95,
+                  115,
+                  116,
+                  97,
+                  116,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "red_packet"
+              },
+              {
+                "kind": "account",
+                "path": "backer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "sol_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  111,
+                  108,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "red_packet"
+              }
+            ]
+          }
+        },
+        {
+          "name": "creator"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "update_config",
+      "discriminator": [
+        29,
+        158,
+        252,
+        191,
+        10,
+        83,
+        219,
+        99
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "new_developer_wallet",
+          "type": "pubkey"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "AirdropState",
+      "discriminator": [
+        1,
+        49,
+        110,
+        205,
+        185,
+        136,
+        198,
+        165
+      ]
+    },
+    {
+      "name": "BackerState",
+      "discriminator": [
+        197,
+        217,
+        164,
+        34,
+        254,
+        45,
+        171,
+        31
+      ]
+    },
+    {
+      "name": "Config",
+      "discriminator": [
+        155,
+        12,
+        170,
+        224,
+        30,
+        250,
+        204,
+        130
+      ]
+    },
+    {
+      "name": "RedPacket",
+      "discriminator": [
+        51,
+        197,
+        171,
+        232,
+        223,
+        81,
+        121,
+        248
+      ]
+    },
+    {
+      "name": "SolVault",
+      "discriminator": [
+        21,
+        132,
+        230,
+        103,
+        19,
+        209,
+        129,
+        248
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "AirdropClaimed",
+      "discriminator": [
+        125,
+        251,
+        195,
+        183,
+        202,
+        126,
+        89,
+        68
+      ]
+    },
+    {
+      "name": "CrowdfundingSettled",
+      "discriminator": [
+        173,
+        120,
+        231,
+        43,
+        147,
+        191,
+        17,
+        168
+      ]
+    },
+    {
+      "name": "CrowdfundingSupported",
+      "discriminator": [
+        228,
+        65,
+        99,
+        118,
+        17,
+        180,
+        251,
+        69
+      ]
+    },
+    {
+      "name": "DevFundClaimed",
+      "discriminator": [
+        19,
+        147,
+        162,
+        43,
+        114,
+        121,
+        224,
+        118
+      ]
+    },
+    {
+      "name": "FeesDistributed",
+      "discriminator": [
+        209,
+        24,
+        174,
+        200,
+        236,
+        90,
+        154,
+        55
+      ]
+    },
+    {
+      "name": "RedPacketCreated",
+      "discriminator": [
+        78,
+        104,
+        20,
+        159,
+        91,
+        204,
+        152,
+        56
+      ]
+    },
+    {
+      "name": "Refunded",
+      "discriminator": [
+        35,
+        103,
+        149,
+        246,
+        196,
+        123,
+        221,
+        99
+      ]
+    },
+    {
+      "name": "TokensClaimed",
+      "discriminator": [
+        25,
+        128,
+        244,
+        55,
+        241,
+        136,
+        200,
+        91
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "ArithmeticOverflow",
+      "msg": "Arithmetic overflow occurred"
+    },
+    {
+      "code": 6001,
+      "name": "InvalidCreator",
+      "msg": "Invalid creator specified"
+    },
+    {
+      "code": 6002,
+      "name": "InsufficientVaultBalance",
+      "msg": "Insufficient vault balance"
+    },
+    {
+      "code": 6003,
+      "name": "InvalidTotalAmount",
+      "msg": "Total amount must be greater than zero"
+    },
+    {
+      "code": 6004,
+      "name": "InvalidTokenName",
+      "msg": "Invalid token name format"
+    },
+    {
+      "code": 6005,
+      "name": "InvalidTokenSymbol",
+      "msg": "Invalid token symbol format"
+    },
+    {
+      "code": 6006,
+      "name": "InvalidFundingGoal",
+      "msg": "Funding goal must be greater than zero"
+    },
+    {
+      "code": 6007,
+      "name": "InvalidExpiryTime",
+      "msg": "Invalid expiry time"
+    },
+    {
+      "code": 6008,
+      "name": "TooManyAllocationTypes",
+      "msg": "Too many allocation entries"
+    },
+    {
+      "code": 6009,
+      "name": "InvalidAllocationAmount",
+      "msg": "Allocation amount must be greater than zero"
+    },
+    {
+      "code": 6010,
+      "name": "InvalidAllocationName",
+      "msg": "Invalid allocation name format"
+    },
+    {
+      "code": 6011,
+      "name": "InvalidAllocation",
+      "msg": "Sum of custom allocations does not match total amount"
+    },
+    {
+      "code": 6012,
+      "name": "DuplicateAllocationName",
+      "msg": "Duplicate allocation name found"
+    },
+    {
+      "code": 6013,
+      "name": "MissingAirdropAllocation",
+      "msg": "Missing 'airdrop' allocation in custom setup"
+    },
+    {
+      "code": 6014,
+      "name": "MissingLiquidityAllocation",
+      "msg": "Missing 'liquidity' allocation in custom setup"
+    },
+    {
+      "code": 6015,
+      "name": "InvalidAirdropMaxCount",
+      "msg": "Airdrop max count must be greater than zero"
+    },
+    {
+      "code": 6016,
+      "name": "AirdropAmountTooLowForMaxCount",
+      "msg": "Airdrop amount is too low for the max count of claimants"
+    },
+    {
+      "code": 6017,
+      "name": "CrowdfundingEnded",
+      "msg": "Crowdfunding period has ended"
+    },
+    {
+      "code": 6018,
+      "name": "RedPacketSettled",
+      "msg": "Crowdfunding has been settled, cannot support anymore"
+    },
+    {
+      "code": 6019,
+      "name": "InvalidSupportAmount",
+      "msg": "Invalid support amount"
+    },
+    {
+      "code": 6020,
+      "name": "AlreadySupported",
+      "msg": "This wallet has already supported the project"
+    },
+    {
+      "code": 6021,
+      "name": "NoContribution",
+      "msg": "No contribution found for this user"
+    },
+    {
+      "code": 6022,
+      "name": "AlreadySettled",
+      "msg": "Crowdfunding has already been settled"
+    },
+    {
+      "code": 6023,
+      "name": "CrowdfundingNotEnded",
+      "msg": "Crowdfunding has not ended yet"
+    },
+    {
+      "code": 6024,
+      "name": "NoFundsRaised",
+      "msg": "No funds were raised"
+    },
+    {
+      "code": 6025,
+      "name": "CrowdfundingFailed",
+      "msg": "Crowdfunding was not successful"
+    },
+    {
+      "code": 6026,
+      "name": "MissingCrowdfundingAllocation",
+      "msg": "Missing 'crowdfunding' allocation for settlement"
+    },
+    {
+      "code": 6027,
+      "name": "AlreadyClaimed",
+      "msg": "Airdrop has already been claimed by this user"
+    },
+    {
+      "code": 6028,
+      "name": "AirdropExhausted",
+      "msg": "Airdrop supply has been exhausted"
+    },
+    {
+      "code": 6029,
+      "name": "CrowdfundingNotSettled",
+      "msg": "Crowdfunding not settled yet, cannot claim"
+    },
+    {
+      "code": 6030,
+      "name": "UnlockNotStarted",
+      "msg": "Unlock period has not started"
+    },
+    {
+      "code": 6031,
+      "name": "NoVestedTokensToClaim",
+      "msg": "No vested crowdfunding tokens available to claim at this time"
+    },
+    {
+      "code": 6032,
+      "name": "AlreadyRefunded",
+      "msg": "Already refunded for this project"
+    },
+    {
+      "code": 6033,
+      "name": "RefundWindowClosed",
+      "msg": "Refund window is closed"
+    },
+    {
+      "code": 6034,
+      "name": "NotRefundable",
+      "msg": "Project was successful, not refundable"
+    },
+    {
+      "code": 6035,
+      "name": "NoDevFundAllocated",
+      "msg": "No development fund has been allocated (amount is zero)"
+    },
+    {
+      "code": 6036,
+      "name": "NoDevFundToClaim",
+      "msg": "No developer fund (SOL) available to claim at this time"
+    },
+    {
+      "code": 6037,
+      "name": "DevFundNotStarted",
+      "msg": "Developer fund vesting has not started yet"
+    },
+    {
+      "code": 6038,
+      "name": "FeesAlreadyDistributed",
+      "msg": "Fees have already been distributed"
+    },
+    {
+      "code": 6039,
+      "name": "NoFeesToDistribute",
+      "msg": "No fees to distribute"
+    },
+    {
+      "code": 6040,
+      "name": "InvalidFeePercentage",
+      "msg": "Invalid fee percentage configuration"
+    },
+    {
+      "code": 6041,
+      "name": "MissingDeveloperAllocation",
+      "msg": "Missing 'developer' allocation entry"
+    },
+    {
+      "code": 6042,
+      "name": "InvalidUnlockMonths",
+      "msg": "Unlock months must be greater than zero"
+    },
+    {
+      "code": 6043,
+      "name": "InvalidMint",
+      "msg": "Invalid mint account provided"
+    },
+    {
+      "code": 6044,
+      "name": "InvalidTokenProgram",
+      "msg": "Invalid token program provided"
+    },
+    {
+      "code": 6045,
+      "name": "InvalidVaultMint",
+      "msg": "Vault mint mismatch"
+    },
+    {
+      "code": 6046,
+      "name": "InvalidVaultOwner",
+      "msg": "Vault owner mismatch"
+    },
+    {
+      "code": 6047,
+      "name": "InvalidClaimerATAMint",
+      "msg": "Claimer ATA mint mismatch"
+    },
+    {
+      "code": 6048,
+      "name": "InvalidClaimerATAOwner",
+      "msg": "Claimer ATA owner mismatch"
+    },
+    {
+      "code": 6049,
+      "name": "InvalidTokenAccountMint",
+      "msg": "Creator token account mint mismatch"
+    },
+    {
+      "code": 6050,
+      "name": "InvalidTokenAccountOwner",
+      "msg": "Creator token account owner mismatch"
+    },
+    {
+      "code": 6051,
+      "name": "RaydiumNotImplemented",
+      "msg": "Raydium integration not implemented"
+    }
+  ],
+  "types": [
+    {
+      "name": "AirdropClaimed",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "claimer",
+            "type": "pubkey"
+          },
+          {
+            "name": "red_packet",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AirdropState",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "claimed",
+            "type": "bool"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AllocationEntry",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "unlock_months",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BackerState",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "refunded",
+            "type": "bool"
+          },
+          {
+            "name": "claimed_amount",
+            "type": "u64"
+          },
+          {
+            "name": "unlock_scheme",
+            "type": {
+              "defined": {
+                "name": "UnlockSchemeType"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Config",
+      "docs": [
+        "全局配置账户，用于存储可由管理员更新的参数"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "admin",
+            "docs": [
+              "拥有更新配置权限的管理员地址"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "developer_wallet",
+            "docs": [
+              "接收平台费用的开发者/平台方钱包地址"
+            ],
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CrowdfundingSettled",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "red_packet",
+            "type": "pubkey"
+          },
+          {
+            "name": "success",
+            "type": "bool"
+          },
+          {
+            "name": "sol_raised",
+            "type": "u64"
+          },
+          {
+            "name": "liquidity_sol_amount",
+            "type": "u64"
+          },
+          {
+            "name": "liquidity_token_amount",
+            "type": "u64"
+          },
+          {
+            "name": "dev_fund_sol_amount",
+            "type": "u64"
+          },
+          {
+            "name": "creator_direct_amount",
+            "type": "u64"
+          },
+          {
+            "name": "protocol_fee_amount",
+            "type": "u64"
+          },
+          {
+            "name": "liquidity_pool",
+            "type": "pubkey"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CrowdfundingSupported",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "backer",
+            "type": "pubkey"
+          },
+          {
+            "name": "red_packet",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CustomCrowdfundingParams",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "total_amount",
+            "type": "u64"
+          },
+          {
+            "name": "token_name",
+            "type": "string"
+          },
+          {
+            "name": "token_symbol",
+            "type": "string"
+          },
+          {
+            "name": "funding_goal",
+            "type": "u64"
+          },
+          {
+            "name": "allocations",
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "AllocationEntry"
+                }
+              }
+            }
+          },
+          {
+            "name": "airdrop_max_count",
+            "type": {
+              "option": "u16"
+            }
+          },
+          {
+            "name": "expiry_duration",
+            "type": {
+              "option": "i64"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "DevFundClaimed",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "creator",
+            "type": "pubkey"
+          },
+          {
+            "name": "red_packet",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "FeesDistributed",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "red_packet",
+            "type": "pubkey"
+          },
+          {
+            "name": "trigger",
+            "type": "pubkey"
+          },
+          {
+            "name": "total_distributed",
+            "type": "u64"
+          },
+          {
+            "name": "creator_fee",
+            "type": "u64"
+          },
+          {
+            "name": "developer_fee",
+            "type": "u64"
+          },
+          {
+            "name": "developer_wallet",
+            "type": "pubkey"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RedPacket",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "creator",
+            "type": "pubkey"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "token_name",
+            "type": "string"
+          },
+          {
+            "name": "token_symbol",
+            "type": "string"
+          },
+          {
+            "name": "total_amount",
+            "type": "u64"
+          },
+          {
+            "name": "allocations",
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "AllocationEntry"
+                }
+              }
+            }
+          },
+          {
+            "name": "funding_goal",
+            "type": "u64"
+          },
+          {
+            "name": "sol_raised",
+            "type": "u64"
+          },
+          {
+            "name": "expiry_time",
+            "type": "i64"
+          },
+          {
+            "name": "tokens_per_sol",
+            "type": "u128"
+          },
+          {
+            "name": "settled",
+            "type": "bool"
+          },
+          {
+            "name": "success",
+            "type": "bool"
+          },
+          {
+            "name": "fees_distributed",
+            "type": "bool"
+          },
+          {
+            "name": "unlock_start_time",
+            "type": "i64"
+          },
+          {
+            "name": "dev_fund_start_time",
+            "type": "i64"
+          },
+          {
+            "name": "airdrop_max_count",
+            "type": "u16"
+          },
+          {
+            "name": "airdrop_claimed",
+            "type": "u16"
+          },
+          {
+            "name": "creator_direct_amount",
+            "type": "u64"
+          },
+          {
+            "name": "liquidity_sol_amount",
+            "type": "u64"
+          },
+          {
+            "name": "protocol_fee_amount",
+            "type": "u64"
+          },
+          {
+            "name": "dev_fund_sol_amount",
+            "type": "u64"
+          },
+          {
+            "name": "liquidity_token_amount",
+            "type": "u64"
+          },
+          {
+            "name": "dev_fund_claimed",
+            "type": "u64"
+          },
+          {
+            "name": "liquidity_pool",
+            "type": "pubkey"
+          },
+          {
+            "name": "liquidity_fee_creator_percent",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RedPacketCreated",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "creator",
+            "type": "pubkey"
+          },
+          {
+            "name": "red_packet",
+            "type": "pubkey"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "symbol",
+            "type": "string"
+          },
+          {
+            "name": "funding_goal",
+            "type": "u64"
+          },
+          {
+            "name": "expiry_time",
+            "type": "i64"
+          },
+          {
+            "name": "total_supply",
+            "type": "u64"
+          },
+          {
+            "name": "allocations",
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "AllocationEntry"
+                }
+              }
+            }
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Refunded",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "backer",
+            "type": "pubkey"
+          },
+          {
+            "name": "red_packet",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SolVault",
+      "type": {
+        "kind": "struct",
+        "fields": []
+      }
+    },
+    {
+      "name": "TokensClaimed",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "backer",
+            "type": "pubkey"
+          },
+          {
+            "name": "red_packet",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UnlockSchemeType",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Immediate"
+          },
+          {
+            "name": "Gradual"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,412 @@
+{
+  "address": "6jYBw1mAaH3aJrKEjoacBmNT43MqnTanDBUpiyMX4TN",
+  "metadata": {
+    "name": "mint_program",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "create_token_2022",
+      "docs": ["指令 3: 创建一个带有链上元数据的 Token-2022 Token"],
+      "discriminator": [122, 75, 16, 217, 248, 141, 155, 169],
+      "accounts": [
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "fee_receiver",
+          "writable": true,
+          "address": "15hPXzWgid1UWUKnp4KvtZEbaNUCWkPK79cb5uqHysf"
+        },
+        {
+          "name": "mint_account",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": {
+              "name": "TokenMetadataArgs"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "create_token_metaplex",
+      "docs": ["指令 2: 创建一个带有 Metaplex 元数据的 SPL Token"],
+      "discriminator": [133, 27, 89, 58, 63, 106, 97, 187],
+      "accounts": [
+        {
+          "name": "payer",
+          "docs": ["用户，也即支付创建费和交易费的人"],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "fee_receiver",
+          "docs": ["接收服务费的账户"],
+          "writable": true,
+          "address": "15hPXzWgid1UWUKnp4KvtZEbaNUCWkPK79cb5uqHysf"
+        },
+        {
+          "name": "metadata_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [109, 101, 116, 97, 100, 97, 116, 97]
+              },
+              {
+                "kind": "account",
+                "path": "token_metadata_program"
+              },
+              {
+                "kind": "account",
+                "path": "mint_account"
+              }
+            ],
+            "program": {
+              "kind": "account",
+              "path": "token_metadata_program"
+            }
+          }
+        },
+        {
+          "name": "mint_account",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "token_metadata_program",
+          "address": "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "decimals",
+          "type": "u8"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "symbol",
+          "type": "string"
+        },
+        {
+          "name": "uri",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "create_token_simple",
+      "docs": ["指令 1: 创建一个最基础的 SPL Token"],
+      "discriminator": [213, 162, 138, 216, 252, 5, 238, 47],
+      "accounts": [
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "fee_receiver",
+          "writable": true,
+          "address": "15hPXzWgid1UWUKnp4KvtZEbaNUCWkPK79cb5uqHysf"
+        },
+        {
+          "name": "mint",
+          "docs": ["使用 PDA 作为 mint 账户，确保地址是确定的，并且由程序控制"],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [109, 105, 110, 116]
+              },
+              {
+                "kind": "arg",
+                "path": "symbol"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "symbol",
+          "type": "string"
+        },
+        {
+          "name": "decimals",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "mint_token",
+      "docs": ["指令 4: 铸造 Token"],
+      "discriminator": [172, 137, 183, 14, 207, 110, 234, 56],
+      "accounts": [
+        {
+          "name": "mint",
+          "writable": true
+        },
+        {
+          "name": "token_account",
+          "writable": true
+        },
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "token_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "transfer_token",
+      "discriminator": [219, 17, 122, 53, 237, 171, 232, 222],
+      "accounts": [
+        {
+          "name": "signer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "from",
+          "writable": true
+        },
+        {
+          "name": "to"
+        },
+        {
+          "name": "to_ata",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "to"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6, 221, 246, 225, 215, 101, 161, 147, 217, 203, 225, 70, 206,
+                  235, 121, 172, 28, 180, 133, 237, 95, 91, 55, 145, 58, 140,
+                  245, 133, 126, 255, 0, 169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140, 151, 37, 143, 78, 36, 137, 241, 187, 61, 16, 41, 20, 142,
+                13, 131, 11, 90, 19, 153, 218, 255, 16, 132, 4, 142, 123, 216,
+                219, 233, 248, 89
+              ]
+            }
+          }
+        },
+        {
+          "name": "mint",
+          "writable": true
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "TokenCreated",
+      "discriminator": [236, 19, 41, 255, 130, 78, 147, 172]
+    },
+    {
+      "name": "TokensMinted",
+      "discriminator": [207, 212, 128, 194, 175, 54, 64, 24]
+    },
+    {
+      "name": "TokensTransferred",
+      "discriminator": [140, 86, 106, 38, 85, 157, 202, 250]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "InvalidFeeReceiver",
+      "msg": "The provided fee receiver account is incorrect."
+    },
+    {
+      "code": 6001,
+      "name": "Unauthorized",
+      "msg": "Unauthorized authority"
+    }
+  ],
+  "types": [
+    {
+      "name": "TokenCreated",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "creator",
+            "type": "pubkey"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "symbol",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "decimals",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TokenMetadataArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "symbol",
+            "type": "string"
+          },
+          {
+            "name": "uri",
+            "type": "string"
+          },
+          {
+            "name": "decimals",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TokensMinted",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "recipient_ata",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TokensTransferred",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "from_ata",
+            "type": "pubkey"
+          },
+          {
+            "name": "to_ata",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      }
+    }
+  ]
+}
