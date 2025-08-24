@@ -1,0 +1,25 @@
+[package]
+name = "cfg"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+
+[features]
+# 默认特性
+default = ["debug"]
+
+# 调试特性
+debug = []
+
+# 实验性特性
+experimental = []
+
+# 高级功能特性
+advanced = []
+
+# 日志功能特性
+logging = []
+
+# 详细模式特性
+verbose = []
